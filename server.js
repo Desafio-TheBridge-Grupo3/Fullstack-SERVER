@@ -1,9 +1,28 @@
 const express = require('express')
+const cors = require('cors');
+const helmet = require('helmet');
 const app = express()
 const port = 3000
 
+// PERMITIR EL ACCESO DEL FRONT AL BACK 
+app.use(cors({origin:true, credentials:true}))
 
-//middelwares
+// PAQUETE PARA IMPLEMENTAR SEGURIDAD EN LA APLICACIÓN
+// Set Content Security Policies
+const scriptSources = ["'self'", "'unsafe-inline'", "'unsafe-eval'"];
+
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: scriptSources,
+      "img-src": ["'self'", "https:", "data:"],
+    },
+  })
+);
+
+//middlewares
 const error404 = require('./middlewares/error404')
 const morgan = require('./middlewares/morgan')
 
