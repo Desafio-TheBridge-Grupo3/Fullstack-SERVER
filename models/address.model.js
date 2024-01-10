@@ -14,32 +14,32 @@ const Address = db.define(
     name: {
         field: "name",
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
     },
     cp: {
         field: "cp",
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
     },
     province: {
         field: "province",
         type: DataTypes.STRING(45),
-        allowNull: false,
+        allowNull: true,
     },
     city: {
         field: "city",
         type: DataTypes.STRING(45),
-        allowNull: false,
+        allowNull: true,
     },
     address_type: {
         field: "address_type",
         type: DataTypes.STRING(1),
-        allowNull: false,
+        allowNull: true,
     },
     zone: {
         field: "zone",
         type: DataTypes.STRING(1),
-        allowNull: false,
+        allowNull: true,
     },
   },
   {

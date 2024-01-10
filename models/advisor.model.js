@@ -13,13 +13,13 @@ const Advisor = db.define(
     },
     name: {
         field: "name",
-        type: DataTypes.STRING(50),
-        allowNull: false,
+        type: DataTypes.TEXT,
+        allowNull: true,
     },
     user: {
         field: "user",
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
     },
     email: {
         field: "email",
@@ -29,12 +29,12 @@ const Advisor = db.define(
     password: {
         field: "password",
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
     },
     role: {
         field: "role",
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
   },
   {

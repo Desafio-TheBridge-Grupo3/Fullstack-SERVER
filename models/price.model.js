@@ -14,17 +14,17 @@ const Price = db.define(
     con_P1: {
         field: "con_P1",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     con_P2: {
         field: "con_P2",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     con_P3: {
         field: "con_P3",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     con_P4: {
         field: "con_P4",
@@ -44,17 +44,17 @@ const Price = db.define(
     pow_P1: {
         field: "pow_P1",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     pow_P2: {
         field: "pow_P2",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     pow_P3: {
         field: "pow_P3",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     pow_P4: {
         field: "pow_P4",

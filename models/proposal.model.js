@@ -14,22 +14,27 @@ const Proposal = db.define(
     type: {
         field: "type",
         type: DataTypes.STRING(1),
-        allowNull: false,
+        allowNull: true,
     },
     concept: {
         field: "concept",
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
     },
     date: {
         field: "date",
         type: DataTypes.DATE,
-        allowNull: false,
+        allowNull: true,
+    },
+    savings: {
+      field: "savings",
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     id_agreement: {
         field: "id_agreement",
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
     },
   },
   {

@@ -14,27 +14,27 @@ const CIA_Client = db.define(
     name: {
         field: "name",
         type: DataTypes.STRING(50),
-        allowNull: false,
+        allowNull: true,
     },
     issue_date: {
         field: "issue_date",
         type: DataTypes.DATE,
-        allowNull: false,
+        allowNull: true,
     },
     start_date: {
         field: "start_date",
         type: DataTypes.DATE,
-        allowNull: false,
+        allowNull: true,
     },
     end_date: {
         field: "end_date",
         type: DataTypes.DATE,
-        allowNull: false,
+        allowNull: true,
     },
     billing_days: {
         field: "billing_days",
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
     },
     discount_energy: {
         field: "discount_energy",
@@ -49,12 +49,12 @@ const CIA_Client = db.define(
     iva: {
         field: "iva",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     consumme_sips: {
         field: "consumme_sips",
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
     },
     tax: {
         field: "tax",
@@ -69,22 +69,12 @@ const CIA_Client = db.define(
     maintenance: {
         field: "maintenance",
         type: DataTypes.FLOAT,
-        allowNull: false,
-    },
-    id_total: {
-        field: "id_total",
-        type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
     },
     id_price: {
         field: "id_price",
         type: DataTypes.INTEGER,
-        allowNull: false,
-    },
-    id_consumption: {
-        field: "id_consumption",
-        type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
     },
   },
   {

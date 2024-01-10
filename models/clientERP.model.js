@@ -14,17 +14,17 @@ const Client_ERP = db.define(
     name: {
       field: "name",
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     id_address: {
         field: "id_address",
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
     },
     id_advisor: {
         field: "id_advisor",
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
     },
   },
   {

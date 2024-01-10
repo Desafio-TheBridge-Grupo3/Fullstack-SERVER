@@ -11,20 +11,25 @@ const Total = db.define(
       primaryKey: true,
       allowNull: false,
     },
+    type_code: {
+        field: "type_code",
+        type: DataTypes.STRING(2),
+        allowNull: true,
+    },
     result_con_P1: {
         field: "result_con_P1",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     result_con_P2: {
         field: "result_con_P2",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     result_con_P3: {
         field: "result_con_P3",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     result_con_P4: {
         field: "result_con_P4",
@@ -44,17 +49,17 @@ const Total = db.define(
     result_pow_P1: {
         field: "result_pow_P1",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     result_pow_P2: {
         field: "result_pow_P2",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     result_pow_P3: {
         field: "result_pow_P3",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     result_pow_P4: {
         field: "result_pow_P4",
@@ -71,10 +76,10 @@ const Total = db.define(
         type: DataTypes.FLOAT,
         allowNull: true,
     },
-    id_cia_client: {
-        field: "id_cia_client",
+    id_consumption: {
+        field: "id_consumption",
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
     },
   },
   {

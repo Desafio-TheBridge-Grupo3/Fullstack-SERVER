@@ -14,22 +14,22 @@ const Consumption = db.define(
     code: {
         field: "code",
         type: DataTypes.STRING(2),
-        allowNull: false,
+        allowNull: true,
     },
     con_P1: {
         field: "con_P1",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     con_P2: {
         field: "con_P2",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     con_P3: {
         field: "con_P3",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     con_P4: {
         field: "con_P4",
@@ -49,17 +49,17 @@ const Consumption = db.define(
     pow_P1: {
         field: "pow_P1",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     pow_P2: {
         field: "pow_P2",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     pow_P3: {
         field: "pow_P3",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     pow_P4: {
         field: "pow_P4",
@@ -79,12 +79,12 @@ const Consumption = db.define(
     reactive_power: {
         field: "reactive_power",
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
     },
     id_cia_client: {
         field: "id_cia_client",
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
     },
   },
   {
