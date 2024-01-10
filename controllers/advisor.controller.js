@@ -57,11 +57,11 @@ const deleteAdvisor = async (req, res) => {
     }
   };
 
-  const plantsController = {
+  const advisorController = {
     getAdvisor,
     createAdvisor,
     updateAdvisor,
     deleteAdvisor,
   };
   
-  module.exports = plantsController;
+  module.exports = advisorController;
