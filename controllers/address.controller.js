@@ -11,7 +11,6 @@ const getAddress = async (req, res) => {
       res.status(200).json(query);
     }
   } catch (error) {
-    console.log(error);
     res.status(400).json({ error: error.message });
   }
 };
@@ -22,7 +21,6 @@ const createAddress = async (req, res) => {
     const query = await Address.create(req.body);
     res.status(201).json(query);
   } catch (error) {
-    console.log(error);
     res.status(400).json({ error: error.message });
   }
 };
@@ -35,7 +33,6 @@ const updateAddress = async (req, res) => {
     });
     res.status(200).json(update);
   } catch (error) {
-    console.log(error);
     res.status(400).json({ error: error.message });
   }
 };
@@ -48,7 +45,6 @@ const deleteAdvisor = async (req, res) => {
     });
     res.status(200).json(deleted);
   } catch (error) {
-    console.log(error);
     res.status(400).json({ error: error.message });
   }
 };
