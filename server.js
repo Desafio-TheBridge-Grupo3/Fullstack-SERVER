@@ -42,9 +42,11 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-const advisorRouter = require('./routes/advisor.route')
+const advisorRouter = require('./routes/advisor.route');
+const addressRouter = require("./routes/address.route");
 
 app.use("/advisor", advisorRouter);
+app.use("/address", addressRouter);
 
 
 //para rutas no existentes
