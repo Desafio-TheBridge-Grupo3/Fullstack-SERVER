@@ -1,4 +1,4 @@
-const { db } = require("../config/sql_connection");
+const { db } = require("../config/sqlConnection");
 const { DataTypes } = require("sequelize");
 
 const Client_ERP = db.define(
