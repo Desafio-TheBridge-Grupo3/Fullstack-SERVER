@@ -1,5 +1,4 @@
-const { type } = require("os");
-const { db } = require("../config/sql_connection");
+const { db } = require("../config/sqlConnection");
 const { DataTypes } = require("sequelize");
 
 const CIA_Several = db.define(
