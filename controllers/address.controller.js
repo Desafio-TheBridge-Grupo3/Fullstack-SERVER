@@ -45,7 +45,7 @@ const updateAddress = async (req, res) => {
   };
 
   // DELETE ADVISOR
-const deleteAdvisor = async (req, res) => {
+const deleteAddress = async (req, res) => {
     try {
       const deleted = await Address.destroy({
         where: { id: req.query.id },
@@ -61,7 +61,7 @@ const deleteAdvisor = async (req, res) => {
     getAddress,
     createAddress,
     updateAddress,
-    deleteAdvisor,
+    deleteAddress,
   };
   
   module.exports = plantsController;

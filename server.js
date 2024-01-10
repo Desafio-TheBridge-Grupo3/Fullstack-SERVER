@@ -1,3 +1,4 @@
+require("./config/sqlConnection");
 const express = require('express')
 const cors = require('cors');
 const helmet = require('helmet');
@@ -40,6 +41,10 @@ app.use(express.json()); // Habilito recepción de JSON en servidor
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
+
+const advisorRouter = require('./routes/advisor.route')
+
+app.use("/advisor", advisorRouter);
 
 
 //para rutas no existentes
