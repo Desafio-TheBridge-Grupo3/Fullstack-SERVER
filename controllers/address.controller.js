@@ -48,6 +48,18 @@ const deleteAdvisor = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+  // DELETE ADVISOR
+const deleteAddress = async (req, res) => {
+    try {
+      const deleted = await Address.destroy({
+        where: { id: req.query.id },
+      });
+      res.status(200).json(deleted);
+    } catch (error) {
+      console.log(error);
+      res.status(400).json({ error: error.message });
+    }
+  };
 
 const addressController = {
   getAddress,
