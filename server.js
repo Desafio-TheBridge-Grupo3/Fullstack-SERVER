@@ -46,11 +46,13 @@ const advisorRouter = require('./routes/advisor.route');
 const addressRouter = require("./routes/address.route");
 const ciaClientRouter = require("./routes/ciaClient.route");
 const consumptionRouter = require("./routes/consumption.route");
+const priceRouter = require("./routes/price.route");
 
 app.use("/advisor", advisorRouter);
 app.use("/address", addressRouter);
 app.use("/cia-client", ciaClientRouter);
 app.use("/consumption", consumptionRouter);
+app.use("/price", priceRouter);
 
 
 //para rutas no existentes
