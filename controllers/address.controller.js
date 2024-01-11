@@ -65,7 +65,7 @@ const addressController = {
   getAddress,
   createAddress,
   updateAddress,
-  deleteAdvisor,
+  deleteAddress,
 };
 
 module.exports = addressController;

@@ -44,9 +44,11 @@ app.get('/', (req, res) => {
 
 const advisorRouter = require('./routes/advisor.route');
 const addressRouter = require("./routes/address.route");
+const ciaClientRouter = require("./routes/ciaClient.route");
 
 app.use("/advisor", advisorRouter);
 app.use("/address", addressRouter);
+app.use("/cia-client", ciaClientRouter);
 
 
 //para rutas no existentes
