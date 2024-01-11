@@ -1,8 +1,8 @@
 const { db } = require("../config/sqlConnection");
 const { DataTypes } = require("sequelize");
 
-const CIA_Several = db.define(
-  "CIA_Several",
+const CIA_con_several = db.define(
+  "CIA_con_several",
   {
     id: {
       field: "id",
@@ -36,15 +36,15 @@ const CIA_Several = db.define(
         type: DataTypes.FLOAT,
         allowNull: true,
     },
-    market: {
-        field: "market",
-        type: DataTypes.TEXT,
-        allowNull: true,
-    },
-    product_name: {
-      field: "product_name",
+    product_cia: {
+      field: "product_cia",
       type: DataTypes.STRING,
       allowNull: true,
+    },
+    market: {
+        field: "market",
+        type: DataTypes.STRING(1),
+        allowNull: true,
     },
     con_price_P1: {
       field: "con_price_P1",
@@ -76,45 +76,15 @@ const CIA_Several = db.define(
       type: DataTypes.FLOAT,
       allowNull: true,
     },
-    pow_price_P1: {
-      field: "pow_price_P1",
-      type: DataTypes.FLOAT,
-      allowNull: true,
-    },
-    pow_price_P2: {
-      field: "pow_price_P2",
-      type: DataTypes.FLOAT,
-      allowNull: true,
-    },
-    pow_price_P3: {
-      field: "pow_price_P3",
-      type: DataTypes.FLOAT,
-      allowNull: true,
-    },
-    pow_price_P4: {
-      field: "pow_price_P4",
-      type: DataTypes.FLOAT,
-      allowNull: true,
-    },
-    pow_price_P5: {
-      field: "pow_price_P5",
-      type: DataTypes.FLOAT,
-      allowNull: true,
-    },
-    pow_price_P6: {
-      field: "pow_price_P6",
-      type: DataTypes.FLOAT,
-      allowNull: true,
-    },
   },
   {
     db,
-    modelName: "CIA_Several",
-    tableName: "CIA_Several",
+    modelName: "CIA_con_several",
+    tableName: "CIA_con_several",
     timestamps: false,
   }
 );
 
-CIA_Several.sync();
+CIA_con_several.sync();
 
-module.exports = CIA_Several;
+module.exports = CIA_con_several;

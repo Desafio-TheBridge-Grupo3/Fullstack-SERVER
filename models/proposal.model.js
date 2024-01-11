@@ -36,6 +36,16 @@ const Proposal = db.define(
         type: DataTypes.INTEGER,
         allowNull: true,
     },
+    id_cia_con_several: {
+      field: "id_cia_con_several",
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    id_cia_pow_several: {
+      field: "id_cia_pow_several",
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    }
   },
   {
     db,
