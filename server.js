@@ -2,8 +2,11 @@ require("./config/sqlConnection");
 const express = require('express')
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const passport = require('passport');
 const cors = require('cors');
 const helmet = require('helmet');
+require('./config/jwt.config')(passport);
+require('dotenv').config();
 
 const app = express()
 const port = process.env.PORT || 3000;
@@ -23,6 +26,15 @@ const corsOpts = {
   optionSuccessStatus:200,
 }
 app.use(cors(corsOpts));
+
+// Session and Passport setup
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Set Content Security Policies
 const scriptSources = ["'self'", "'unsafe-inline'", "'unsafe-eval'"];
@@ -51,8 +63,7 @@ const swaggerDocument = require('./swagger.json');
  */
 app.use(express.json()); // Habilito recepción de JSON en servidor
 
-// Routes
-
+// API Routes
 const advisorRouter = require('./routes/advisor.route');
 const addressRouter = require("./routes/address.route");
 const ciaClientRouter = require("./routes/ciaClient.route");
@@ -73,6 +84,10 @@ app.use('/proposal', proposalRouter);
 app.use('/cia-con-several', ciaConSeveralRouter);
 app.use('/cia-pow-several', ciaPowSeveralRouter);
 
+// Auth routes
+const authRoutes = require('./routes/auth.routes');
+app.use('/auth', authRoutes);
+
 // Default route
 app.get('/', (req, res) => {
   res.status(200).json({
@@ -87,8 +102,8 @@ app.get('/', (req, res) => {
 })
 
 // Error/Non existent route
-app.use('*',error404)
+app.use('*', error404);
 
 app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`)
-})
+});
