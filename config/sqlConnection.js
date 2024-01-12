@@ -4,6 +4,10 @@ require('dotenv').config();
 const db = new Sequelize(process.env.SQL_SERVER, process.env.SQL_USER, `${process.env.SQL_PWD}`, {
     host: 'localhost',
     dialect: 'postgres',
+    define: {
+        freezeTableName: true,
+        timestamps: false,
+    }
 });
 
 const connectSQL = async () => {
