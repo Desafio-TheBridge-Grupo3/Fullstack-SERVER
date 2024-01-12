@@ -1,7 +1,5 @@
 require("./config/sqlConnection");
 const express = require('express')
-<<<<<<< HEAD
-=======
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
@@ -10,14 +8,9 @@ const helmet = require('helmet');
 require('./config/jwt.config')(passport);
 require('dotenv').config();
 
->>>>>>> develop
 const app = express()
 const port = process.env.PORT || 3000;
 
-<<<<<<< HEAD
-app.use(express.json()); // Habilito recepción de JSON en servidor
-
-=======
 // Initialize express
 app.use(express.json());
 
@@ -96,7 +89,6 @@ const authRoutes = require('./routes/auth.routes');
 app.use('/auth', authRoutes);
 
 // Default route
->>>>>>> develop
 app.get('/', (req, res) => {
   res.status(200).json({
     success: true,
@@ -109,15 +101,8 @@ app.get('/', (req, res) => {
   })
 })
 
-<<<<<<< HEAD
-
-app.get("*",(req,res)=>{
-    res.status(404).send("Gatito triste - 404 not found");
-})
-=======
 // Error/Non existent route
 app.use('*', error404);
->>>>>>> develop
 
 app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`)
