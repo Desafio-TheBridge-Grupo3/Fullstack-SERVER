@@ -46,7 +46,7 @@ const getProposal = async (req, res) => {
   try {
     // Query in db of Proposal
     let proposal = await Proposal.findOne({
-      where: { id: req.body.id },
+      where: { id: req.params.id },
       attributes: {
         exclude: ["id", "id_agreement"],
       },
@@ -174,7 +174,7 @@ const getAllProposals = async (req, res) => {
     // Query in db of Proposal
     let proposal = await Proposal.findAll({
       attributes: {
-        exclude: ["id", "id_agreement"],
+        exclude: ["id_agreement"],
       },
       include: [
         {

@@ -10,7 +10,7 @@ Total.hasOne(Consumption, { foreignKey: "id" });
 const getTotal = async (req, res) => {
   try {
     let total = await Total.findOne({
-      where: { id: req.body.id },
+      where: { id: req.params.id },
       attributes: {
         exclude: ["id", "id_consumption"],
       },

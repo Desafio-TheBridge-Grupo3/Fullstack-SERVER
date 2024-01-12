@@ -1,17 +1,31 @@
 require("./config/sqlConnection");
 const express = require('express')
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const helmet = require('helmet');
+
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000;
 
-// PERMITIR EL ACCESO DEL FRONT AL BACK 
-app.use(cors({origin:true, credentials:true}))
+// Initialize express
+app.use(express.json());
 
-// PAQUETE PARA IMPLEMENTAR SEGURIDAD EN LA APLICACIÓN
+// Express setup
+app.use(express.urlencoded({extended: true}));
+app.set("trust proxy", 1);
+app.use(cookieParser());
+
+// Cors setup
+const corsOpts = {
+  origin: 'http://localhost:' || process.env.DOMAIN_URL,
+  credentials:true,
+  optionSuccessStatus:200,
+}
+app.use(cors(corsOpts));
+
 // Set Content Security Policies
 const scriptSources = ["'self'", "'unsafe-inline'", "'unsafe-eval'"];
-
 app.use(
   helmet.contentSecurityPolicy({
     useDefaults: true,
@@ -23,7 +37,7 @@ app.use(
   })
 );
 
-//middlewares
+// Middlewares
 const error404 = require('./middlewares/error404')
 const morgan = require('./middlewares/morgan')
 
@@ -37,10 +51,7 @@ const swaggerDocument = require('./swagger.json');
  */
 app.use(express.json()); // Habilito recepción de JSON en servidor
 
-//rutas
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+// Routes
 
 const advisorRouter = require('./routes/advisor.route');
 const addressRouter = require("./routes/address.route");
@@ -48,6 +59,9 @@ const ciaClientRouter = require("./routes/ciaClient.route");
 const consumptionRouter = require("./routes/consumption.route");
 const priceRouter = require("./routes/price.route");
 const totalRouter = require("./routes/total.route");
+const proposalRouter = require('./routes/proposal.routes');
+const ciaConSeveralRouter = require('./routes/ciaConSeveral.routes');
+const ciaPowSeveralRouter = require('./routes/ciaPowSeveral.routes');
 
 app.use("/advisor", advisorRouter);
 app.use("/address", addressRouter);
@@ -55,9 +69,24 @@ app.use("/cia-client", ciaClientRouter);
 app.use("/consumption", consumptionRouter);
 app.use("/price", priceRouter);
 app.use("/total", totalRouter);
+app.use('/proposal', proposalRouter);
+app.use('/cia-con-several', ciaConSeveralRouter);
+app.use('/cia-pow-several', ciaPowSeveralRouter);
 
+// Default route
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Server REST API',
+    routes: {
+      proposal: '/proposal',
+      cia_con_several: '/cia-con-several',
+      cia_pow_several: '/cia-pow-several',
+    },
+  })
+})
 
-//para rutas no existentes
+// Error/Non existent route
 app.use('*',error404)
 
 app.listen(port, () => {

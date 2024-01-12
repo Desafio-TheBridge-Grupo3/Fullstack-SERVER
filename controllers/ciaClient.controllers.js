@@ -6,7 +6,7 @@ CIA_Client.hasOne(Price, { foreignKey: "id" });
 const getCIAClient = async (req, res) => {
   try {
     let client = await CIA_Client.findOne({
-      where: { id: req.body.id },
+      where: { id: req.params.id },
       attributes: {
         exclude: ["id", "id_price"],
       },

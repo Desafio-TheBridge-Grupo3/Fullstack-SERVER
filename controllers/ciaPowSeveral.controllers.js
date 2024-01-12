@@ -27,6 +27,16 @@ const getCiaPowSeveral = async (req, res) => {
   }
 };
 
+const getAllCiaPowSeveral = async (req, res) => {
+  try {
+    let cia = await CIA_pow_several.findAll();
+    cia = cia.map(c => c.dataValues);
+    res.status(200).json({ success: true, data: cia});
+  } catch (error) {
+    res.status(400).json({ message: `ERROR: ${error.stack}` });
+  }
+};
+
 const createCiaPowSeveral = async (req, res) => {
   try {
     const cia = await CIA_pow_several.create(req.body);
@@ -74,6 +84,7 @@ const deleteCiaPowSeveral = async (req, res) => {
 
 const controllers = {
     getCiaPowSeveral,
+    getAllCiaPowSeveral,
     createCiaPowSeveral,
     updateCiaPowSeveral,
     deleteCiaPowSeveral,
