@@ -2,7 +2,7 @@ const CIA_con_several = require("../models/ciaConSeveral.model");
 
 const getCiaConSeveral = async (req, res) => {
   try {
-    if (req.body.id) {
+    if (req.params.id) {
       const cia = await CIA_con_several.findOne({
         where: { id: req.body.id },
         attributes: {
@@ -22,6 +22,16 @@ const getCiaConSeveral = async (req, res) => {
       const data = cia.map((c) => c.dataValues);
       res.status(200).json({ success: true, count: data.length, data: data });
     }
+  } catch (error) {
+    res.status(400).json({ message: `ERROR: ${error.stack}` });
+  }
+};
+
+const getAllCiaConSeveral = async (req, res) => {
+  try {
+    let cia = await CIA_con_several.findAll();
+    cia = cia.map(c => c.dataValues);
+    res.status(200).json({ success: true, data: cia});
   } catch (error) {
     res.status(400).json({ message: `ERROR: ${error.stack}` });
   }
@@ -76,6 +86,7 @@ const deleteCiaConSeveral = async (req, res) => {
 
 const controllers = {
     getCiaConSeveral,
+    getAllCiaConSeveral,
     createCiaConSeveral,
     updateCiaConSeveral,
     deleteCiaConSeveral,
