@@ -31,21 +31,21 @@ const Proposal = db.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    percent_savings: {
+      field: "percent_savings",
+      type: DataTypes.FLOAT,
+      allowNull: true,
+    },
+    cia_several: {
+      field: "cia_several",
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
     id_agreement: {
         field: "id_agreement",
         type: DataTypes.INTEGER,
         allowNull: true,
     },
-    id_cia_con_several: {
-      field: "id_cia_con_several",
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-    id_cia_pow_several: {
-      field: "id_cia_pow_several",
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    }
   },
   {
     db,

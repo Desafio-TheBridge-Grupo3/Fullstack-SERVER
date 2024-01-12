@@ -54,11 +54,6 @@ const Agreement = db.define(
         type: DataTypes.INTEGER,
         allowNull: true,
     },
-    id_cia_several: {
-        field: "id_cia_several",
-        type: DataTypes.INTEGER,
-        allowNull: true,
-    },
     id_cia_client: {
         field: "id_cia_client",
         type: DataTypes.INTEGER,
