@@ -8,6 +8,8 @@ const db = new Sequelize(process.env.SQL_DATABASE, process.env.SQL_USER, `${proc
     define: {
         freezeTableName: true,
         timestamps: false,
+        underscored: true,
+        schema: "public",
     },
     dialectOptions: {
         ssl: true,

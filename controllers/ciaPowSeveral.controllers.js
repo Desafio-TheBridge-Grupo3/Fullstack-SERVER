@@ -2,9 +2,14 @@ const CIA_pow_several = require("../models/ciaPowSeveral.model");
 
 const getCiaPowSeveral = async (req, res) => {
   try {
-    if (req.body.id) {
-      const cia = await CIA_pow_several.findOne({
-        where: { id: req.body.id },
+    const cia = await CIA_pow_several.findOne({
+        where: {
+          cia: req.body.cia,
+          zone: req.body.zone,
+          rate: req.body.rate,
+          product_cia: req.body.product_cia,
+          market: req.body.market,
+        },
         attributes: {
           exclude: ["id"],
         },
@@ -12,16 +17,11 @@ const getCiaPowSeveral = async (req, res) => {
       if (!cia) {
         res.status(404).json({
           success: false,
-          message: `CIA pow Several with id ${req.body.id} could not be found`,
+          message: `CIA pow Several register could not be found`,
         });
       } else {
         res.status(200).json({ success: true, data: cia.dataValues });
-      }
-    } else {
-      const cia = await CIA_pow_several.findAll();
-      const data = cia.map((c) => c.dataValues);
-      res.status(200).json({ success: true, count: data.length, data: data });
-    }
+      };
   } catch (error) {
     res.status(400).json({ message: `ERROR: ${error.stack}` });
   }
@@ -29,10 +29,16 @@ const getCiaPowSeveral = async (req, res) => {
 
 const getAllCiaPowSeveral = async (req, res) => {
   try {
-    let cia = await CIA_pow_several.findAll();
+    let cia = await CIA_pow_several.findAll({
+      limit: req.query.limit,
+      attributes: {
+        exclude: ["id"]
+      }
+    });
     cia = cia.map(c => c.dataValues);
     res.status(200).json({ success: true, count: cia.length, data: cia});
   } catch (error) {
+    console.log(error);
     res.status(400).json({ message: `ERROR: ${error.stack}` });
   }
 };

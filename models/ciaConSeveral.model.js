@@ -48,32 +48,32 @@ const CIA_con_several = db.define(
         allowNull: true,
     },
     con_price_P1: {
-      field: "con_price_P1",
+      field: "con_price_p1",
       type: DataTypes.FLOAT,
       allowNull: true,
     },
     con_price_P2: {
-      field: "con_price_P2",
+      field: "con_price_p2",
       type: DataTypes.FLOAT,
       allowNull: true,
     },
     con_price_P3: {
-      field: "con_price_P3",
+      field: "con_price_p3",
       type: DataTypes.FLOAT,
       allowNull: true,
     },
     con_price_P4: {
-      field: "con_price_P4",
+      field: "con_price_p4",
       type: DataTypes.FLOAT,
       allowNull: true,
     },
     con_price_P5: {
-      field: "con_price_P5",
+      field: "con_price_p5",
       type: DataTypes.FLOAT,
       allowNull: true,
     },
     con_price_P6: {
-      field: "con_price_P6",
+      field: "con_price_p6",
       type: DataTypes.FLOAT,
       allowNull: true,
     },
