@@ -7,6 +7,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 require('./config/jwt.config')(passport);
 require('dotenv').config();
+require('./models/associations');
 
 const app = express()
 const port = process.env.PORT || 3000;
@@ -21,7 +22,7 @@ app.use(cookieParser());
 
 // Cors setup
 const corsOpts = {
-  origin: 'http://localhost:' || process.env.DOMAIN_URL,
+  origin: process.env.DOMAIN_URL || 'http://localhost:5173',
   credentials:true,
   optionSuccessStatus:200,
 }
@@ -61,7 +62,6 @@ app.use(morgan(':method :host :status :param[id] - :response-time ms :body'));
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
  */
-app.use(express.json()); // Habilito recepción de JSON en servidor
 
 // API Routes
 const advisorRouter = require('./routes/advisor.route');
