@@ -45,7 +45,7 @@ const Address = db.define(
   },
   {
     db,
-    modelName: "Address",
+    modelName: "address",
     tableName: "address",
     timestamps: false,
   }

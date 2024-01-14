@@ -38,39 +38,39 @@ const CIA_pow_several = db.define(
         allowNull: true,
     },
     pow_price_P1: {
-      field: "pow_price_P1",
+      field: "pow_price_p1",
       type: DataTypes.FLOAT,
       allowNull: true,
     },
     pow_price_P2: {
-      field: "pow_price_P2",
+      field: "pow_price_p2",
       type: DataTypes.FLOAT,
       allowNull: true,
     },
     pow_price_P3: {
-      field: "pow_price_P3",
+      field: "pow_price_p3",
       type: DataTypes.FLOAT,
       allowNull: true,
     },
     pow_price_P4: {
-      field: "pow_price_P4",
+      field: "pow_price_p4",
       type: DataTypes.FLOAT,
       allowNull: true,
     },
     pow_price_P5: {
-      field: "pow_price_P5",
+      field: "pow_price_p5",
       type: DataTypes.FLOAT,
       allowNull: true,
     },
     pow_price_P6: {
-      field: "pow_price_P6",
+      field: "pow_price_p6",
       type: DataTypes.FLOAT,
       allowNull: true,
     },
   },
   {
     db,
-    modelName: "CIA_pow_several",
+    modelName: "cia_pow_several",
     tableName: "cia_pow_several",
     timestamps: false,
   }

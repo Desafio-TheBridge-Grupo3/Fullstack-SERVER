@@ -137,6 +137,7 @@ const getAllProposals = async (req, res) => {
   try {
     // Query in db of Proposal
     let proposal = await Proposal.findAll({
+      limit: req.query.limit,
       attributes: {
         exclude: ["id_agreement"],
       },
@@ -162,7 +163,6 @@ const getAllProposals = async (req, res) => {
         let obj = p.dataValues;
         obj.date = new Date(p.date).toLocaleString();
         obj.agreement = p.agreement.dataValues;
-        delete obj.id;
         return obj;
       });
 

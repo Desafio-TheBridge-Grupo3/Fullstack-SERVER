@@ -94,9 +94,9 @@ app.get('/', (req, res) => {
     success: true,
     message: 'Server REST API',
     routes: {
-      proposal: '/proposal',
-      cia_con_several: '/cia-con-several',
-      cia_pow_several: '/cia-pow-several',
+      proposal: '/proposal/all',
+      cia_con_several: '/cia-con-several/all',
+      cia_pow_several: '/cia-pow-several/all',
     },
   })
 })
