@@ -38,14 +38,3 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-    - task: AzureContainerApps@1
-      displayName: Update Container App
-      inputs:
-        azureSubscription: $(azureSubscription)
-        location: europewest
-        acrName: $(registryname)
-        imageToDeploy: $(containerRegistry)/$(imageRepository):$(tag)
-        resourceGroup: $(resourceGroup)
-        containerAppEnvironment: $(containerAppEnvironment)
-        containerAppName: $(containerAppName)
-        disableTelemetry: false
