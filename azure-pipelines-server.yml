@@ -11,12 +11,18 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: 'f0cf9357-7a6b-4c6f-bf0e-b88e926d4be7'
-  imageRepository: 'serverseveral'
+  imageRepository: 'serverseveralcalculadora'
   registryname: 'contenedoresdesafiotripulacionesg3'
   containerRegistry: '$(registryname).azurecr.io'
   dockerfilePath: '**/Dockerfile_server'
   tag: 'dev.$(Build.BuildId)'
 
+  # Container Apps Variables
+  azureSubscription: 'conexion-azure-cloud'
+  resourceGroup: 'RECURSOS-desafiotripulacionesG3'
+  containerAppEnvironment: 'env-container-app-desafiotripulacionesg3'
+  containerAppName: 'server-calculadora-several'
+  
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
@@ -38,3 +44,14 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+    - task: AzureContainerApps@1
+      displayName: Update Container App
+      inputs:
+        azureSubscription: $(azureSubscription)
+        location: europewest
+        acrName: $(registryname)
+        imageToDeploy: $(containerRegistry)/$(imageRepository):$(tag)
+        resourceGroup: $(resourceGroup)
+        containerAppEnvironment: $(containerAppEnvironment)
+        containerAppName: $(containerAppName)
+        disableTelemetry: false
