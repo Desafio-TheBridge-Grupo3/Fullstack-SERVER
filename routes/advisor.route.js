@@ -4,7 +4,7 @@ const advisorController = require('../controllers/advisor.controller');
 
 advisorRouter.get('/', advisorController.getAdvisor)
 advisorRouter.post('/', advisorController.createAdvisor)
-advisorRouter.put('/', advisorController.updateAdvisor)
+advisorRouter.put('/:email', advisorController.updateAdvisor)
 advisorRouter.delete('/', advisorController.deleteAdvisor)
 
 
