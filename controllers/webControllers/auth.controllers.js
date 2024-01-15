@@ -28,7 +28,7 @@ const login = async (req, res) => {
           advisor.dataValues.password
         );
         if (!success) {
-          res.status(400).json({ success: false, message: "Wrong password." });
+          res.status(200).json({ success: false, message: "Wrong password." });
         } else {
           advisor = advisor.dataValues;
           delete advisor.password;
@@ -39,13 +39,14 @@ const login = async (req, res) => {
             .status(200)
             .cookie("access-token", token, {
               httpOnly: false,
-              sameSite: "strict",
+              sameSite: "none",
+              secure: true,
             })
             .json({ success: true, user: advisor });
         }
       }
     } else {
-        res.status(400).json({success: false, message: 'Introduce email or username.'})
+        res.status(200).json({success: false, message: 'Introduce email or username.'})
     }
   } catch (error) {
     res.status(400).json({ message: `ERROR: ${error.stack}` });
