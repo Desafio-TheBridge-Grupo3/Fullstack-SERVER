@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const controllers = require('../controllers/ciaConSeveral.controllers');
 
-router.get('/', controllers.getCiaConSeveral);
+router.post('/', controllers.getCiaConSeveral);
 router.get('/all', controllers.getAllCiaConSeveral);
 router.post('/', controllers.createCiaConSeveral);
 router.put('/', controllers.updateCiaConSeveral);
