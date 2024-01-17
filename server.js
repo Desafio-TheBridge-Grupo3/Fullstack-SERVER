@@ -1,4 +1,3 @@
-require("./config/sqlConnection");
 const express = require('express')
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
@@ -22,17 +21,16 @@ app.use(cookieParser());
 
 // Cors setup
 const corsOpts = {
-  origin: process.env.DOMAIN_URL || 'http://localhost:5173',
+  origin: `${process.env.DOMAIN_URL}` || 'http://localhost:5173',
   credentials:true,
   optionSuccessStatus:200,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'access-token'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE']
 }
 app.use(cors(corsOpts));
 
 // Session and Passport setup
 app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: `${process.env.SESSION_SECRET}`,
     resave: false,
     saveUninitialized: true,
 }));
