@@ -29,7 +29,7 @@ const CIA_con_several = db.define(
     },
     indexed_date: {
         field: "indexed_date",
-        type: DataTypes.DATE,
+        type: DataTypes.TEXT,
         allowNull: true,
     },
     fee: {
