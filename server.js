@@ -22,9 +22,12 @@ app.use(cookieParser());
 
 // Cors setup
 const corsOpts = {
-  origin: process.env.DOMAIN_URL || 'http://localhost:5173',
+  // origin: process.env.DOMAIN_URL || 'http://localhost:5173',
+  origin: '*',
   credentials:true,
   optionSuccessStatus:200,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'access-token'],
 }
 app.use(cors(corsOpts));
 

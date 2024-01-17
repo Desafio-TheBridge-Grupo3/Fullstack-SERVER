@@ -26,7 +26,7 @@ const getProposal = async (req, res) => {
       ],
     });
     if (!proposal) {
-      res.status(404).json({
+      res.status(200).json({
         success: false,
         message: `Proposal with id ${req.params.id} does not exist.`,
       });

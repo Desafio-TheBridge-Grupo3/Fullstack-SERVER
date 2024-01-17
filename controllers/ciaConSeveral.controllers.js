@@ -17,7 +17,7 @@ const getCiaConSeveral = async (req, res) => {
       },
     });
     if (!cia) {
-      res.status(404).json({
+      res.status(200).json({
         success: false,
         message: `CIA con Several register could not be found`,
       });
@@ -25,7 +25,7 @@ const getCiaConSeveral = async (req, res) => {
       res.status(200).json({ success: true, data: cia.dataValues });
     };
   } catch (error) {
-    res.status(400).json({ message: `ERROR: ${error.stack}` });
+    res.status(400).json({ message: `ERROR: ${error.stack}`, error: error });
   }
 };
 
