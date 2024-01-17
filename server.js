@@ -22,8 +22,7 @@ app.use(cookieParser());
 
 // Cors setup
 const corsOpts = {
-  // origin: process.env.DOMAIN_URL || 'http://localhost:5173',
-  origin: '*',
+  origin: process.env.DOMAIN_URL || 'http://localhost:5173',
   credentials:true,
   optionSuccessStatus:200,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
