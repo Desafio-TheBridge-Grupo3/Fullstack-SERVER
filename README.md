@@ -29,6 +29,11 @@ El proyecto de aplicación web usa diferentes tecnologías para funcionar:
 
 El client side del proyecto se encuentra también en [repositorio público de GitHub]([https://github.com/Desafio-TheBridge-Grupo3/Fullstack-CLIENT).
 
+## Data Base Models
+![Untitled](https://github.com/Desafio-TheBridge-Grupo3/Fullstack-SERVER/assets/144235263/05e49108-5550-47b6-a5de-32fc25e97c28)
+
+![Untitled_1](https://github.com/Desafio-TheBridge-Grupo3/Fullstack-SERVER/assets/144235263/e3b24a52-5aba-40fe-9810-0bd8f1599c2a)
+
 ## Instalación
 
 Several Comparator requiere [Node.js](https://nodejs.org/) para funcionar.
