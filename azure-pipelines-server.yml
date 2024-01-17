@@ -21,7 +21,7 @@ variables:
   azureSubscription: 'conexion-azure-cloud'
   resourceGroup: 'RECURSOS-desafiotripulacionesG3'
   containerAppEnvironment: 'env-container-app-desafiotripulacionesg3'
-  containerAppName: 'server-calculadora-several'
+  containerAppName: 'server-calculadora-several2'
   
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
