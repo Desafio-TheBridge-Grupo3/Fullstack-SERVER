@@ -21,12 +21,20 @@ app.use(cookieParser());
 
 // Cors setup
 const corsOpts = {
+  credentials: true,
   origin: `${process.env.DOMAIN_URL}` || 'http://localhost:5173',
-  credentials:true,
-  optionSuccessStatus:200,
+  optionSuccessStatus: 200,
   methods: ['GET', 'POST', 'PUT', 'DELETE']
 }
 app.use(cors(corsOpts));
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", `${process.env.DOMAIN_URL}`);
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+  next();
+});
 
 // Session and Passport setup
 app.use(session({
