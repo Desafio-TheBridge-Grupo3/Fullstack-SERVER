@@ -35,14 +35,12 @@ const login = async (req, res) => {
           const token = jwt.sign(advisor, `${process.env.JWT_SECRET}`, {
             expiresIn: 3600000,
           });
-          res
-            .status(200)
-            .cookie("access-token", token, {
+          res.cookie("access-token", token, {
               httpOnly: false,
               sameSite: "none",
               secure: true,
-            })
-            .json({ success: true, user: advisor });
+            });
+          res.status(200).json({ success: true, user: advisor });
         }
       }
     } else {
