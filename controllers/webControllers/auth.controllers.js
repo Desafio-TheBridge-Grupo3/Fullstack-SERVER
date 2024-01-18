@@ -77,7 +77,7 @@ const checkUser = async (req, res) => {
           exclude: ["password"]
         }
       })
-      res.status(200).json({success: true, user: user});
+      res.status(200).json({success: true, user: user.dataValues});
     } else {
       res.status(200).json({success: false, message: 'No user logged in.'});
     }

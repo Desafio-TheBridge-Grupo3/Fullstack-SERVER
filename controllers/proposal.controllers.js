@@ -153,7 +153,7 @@ const getAllProposals = async (req, res) => {
       ],
     });
     if (!proposal) {
-      res.status(404).json({
+      res.status(200).json({
         success: false,
         message: `Could not find proposals.`,
       });

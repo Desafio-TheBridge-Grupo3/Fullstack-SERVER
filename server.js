@@ -33,6 +33,12 @@ app.use(session({
     secret: `${process.env.SESSION_SECRET}`,
     resave: false,
     saveUninitialized: true,
+    cookie: {
+      maxAge: 3600000 * 10,
+      sameSite: 'none',
+      secure: true,
+      httpOnly: false,
+    }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
